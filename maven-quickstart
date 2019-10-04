@@ -1,0 +1,68 @@
+##creer porject maven-archetype-quickstart
+
+mvn archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DarchetypeVersion=1.1 \
+    -DgroupId=cg.ncn. \
+    -DartifactId=ticket \
+    -Dversion=1.0-SNAPSHOT
+
+##delete cd ticket /src 
+
+cd ticket
+
+rm -r ./src
+
+##modify pom.xml 
+
+change pakage replace jar by pom
+
+and remove dependancy junit
+
+## Then create diffrents modules
+
+## module : ticket-batch
+mvn -B archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DarchetypeVersion=1.1 \
+    -DgroupId=org.exemple.demo \
+    -DartifactId=ticket-batch \
+    -Dpackage=org.exemple.demo.batch
+
+## module : ticket-webapp
+## Remarquez ici l'utilisation de l'archetype """"""""""""webapp"""""""""""""""
+mvn -B archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DarchetypeArtifactId=maven-archetype-webapp \
+    -DgroupId=org.exemple.demo \
+    -DartifactId=ticket-webapp \
+    -Dpackage=org.exemple.demo.webapp
+
+## module : ticket-business
+mvn -B archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DarchetypeVersion=1.1 \
+    -DgroupId=org.exemple.demo \
+    -DartifactId=ticket-business \
+    -Dpackage=org.exemple.demo.business
+
+## module : ticket-consumer
+mvn -B archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DarchetypeVersion=1.1 \
+    -DgroupId=org.exemple.demo \
+    -DartifactId=ticket-consumer \
+    -Dpackage=org.exemple.demo.consumer
+
+## module : ticket-model
+mvn -B archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DarchetypeVersion=1.1 \
+    -DgroupId=org.exemple.demo \
+    -DartifactId=ticket-model \
+    -Dpackage=org.exemple.demo.model

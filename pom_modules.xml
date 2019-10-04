@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cg.ncn</groupId>
+  <artifactId>ticket</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+    <!-- ===== properties zone ===== -->
+    <properties>
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+	<!-- my organization property -->
+	<entreprise.name>NCN-Tech</entreprise.name>
+        <entreprise.url>http://www.ncn-tech.com</entreprise.url>
+
+	<!-- main class -->
+	<main_class>cg.ncn.demo</main_class>
+
+	<!-- path groudId poject -->
+	<main_groupId>cg.ncn.demo</main_groupId>
+
+    </properties>
+
+    <!-- ===== Informations générales ===== -->
+    <name>ticket</name>
+    <description>
+        La super application qui sert à faire ceci/cela...
+    </description>
+    <url>${entreprise.url}/${project.name}</url>
+
+    <!-- ===== Organisation ===== -->
+    <organization>
+        <name>${entreprise.name}</name>
+        <url>${entreprise.url}</url>
+    </organization>
+
+    <!-- ===== Licences ===== -->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>${entreprise.url}/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <!-- ===== Les modules du projet ===== -->
+  <modules>  
+    <module>ticket-batch</module>
+    <module>ticket-webapp</module>
+    <module>ticket-business</module>
+    <module>ticket-consumer</module>
+    <module>ticket-model</module>
+  </modules>
+
+    <!-- =============================================================== -->
+    <!-- Gestion des dépendances -->
+    <!-- =============================================================== -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- ===== Modules ===== -->
+            <dependency>
+                <groupId>${main_groupId}</groupId>
+                <artifactId>ticket-batch</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${main_groupId}</groupId>
+                <artifactId>ticket-webapp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${main_groupId}</groupId>
+                <artifactId>ticket-business</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${main_groupId}</groupId>
+                <artifactId>ticket-consumer</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${main_groupId}</groupId>
+                <artifactId>ticket-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- ===== Bibliothèques tierces ===== -->
+	    <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>1.1.0.Final</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.bval</groupId>
+                <artifactId>bval-jsr</artifactId>
+                <version>1.1.2</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+                <scope>provided</scope>
+            </dependency>
+    
+        </dependencies>
+    </dependencyManagement>
+
+</project>
