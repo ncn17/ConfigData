@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+    <!-- ===== Informations Maven ===== -->
+    <groupId>cg.ncn</groupId>
+    <artifactId>demo_project</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <!-- ===== properties zone ===== -->
+    <properties>
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+	<!-- my organization property -->
+	<entreprise.name>NCN-Tech</entreprise.name>
+        <entreprise.url>http://www.ncn-tech.com</entreprise.url>
+
+	<!-- main class -->
+	<main_class>cg.ncn.App</main_class>
+    </properties>
+
+    <!-- ===== Informations générales ===== -->
+    <name>demo_project</name>
+    <description>
+        La super application qui sert à faire ceci/cela...
+    </description>
+    <url>${entreprise.url}/${project.name}</url>
+
+    <!-- ===== Organisation ===== -->
+    <organization>
+        <name>${entreprise.name}</name>
+        <url>${entreprise.url}</url>
+    </organization>
+
+    <!-- ===== Licences ===== -->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>${entreprise.url}/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+
+    <!-- =============================================================== -->
+    <!-- Build -->
+    <!-- =============================================================== -->
+    <build>
+        <!-- Gestion des plugins (version) -->
+        <pluginManagement>
+            <plugins>
+                <!-- Plugin responsable de la génération du fichier JAR -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <!-- Manifest pour la définition de la classe Main -->
+                        <manifest>
+                            <mainClass>${main_class}</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+   <!-- ===== zone dependances ===== -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
